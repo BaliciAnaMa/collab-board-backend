@@ -4,9 +4,10 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true, // Elimină datele care nu sunt în DTO (securitate)
-    forbidNonWhitelisted: true, // Trimite eroare dacă cineva trimite date în plus
+   // forbidNonWhitelisted: true, // Trimite eroare dacă cineva trimite date în plus
     transform: true, // Convertește automat tipurile de date (ex: string la number)
   }));
   await app.listen(process.env.PORT ?? 3000);

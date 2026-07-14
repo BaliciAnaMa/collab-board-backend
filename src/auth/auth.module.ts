@@ -11,9 +11,9 @@ import { JwtStrategy } from './jwt.strategy';
     PassportModule,
     JwtModule.register({
       secret: 'SECRET_KEY_SECRET',
-      signOptions: { expiresIn: '60m' },
+      signOptions: { expiresIn: '2m' },
     }),
-    PrismaModule, // Acesta dă acces la baza de date
+    PrismaModule,
   ],
   providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
