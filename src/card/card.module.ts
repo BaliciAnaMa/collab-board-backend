@@ -4,6 +4,7 @@ import { CardController } from './card.controller';
 import { PrismaModule } from '../prisma/prisma.module';
 import { EventsGateway } from '../events.gateway';
 import { BullModule } from '@nestjs/bullmq'; // <--- ACEASTA ESTE LINIA CARE LIPA
+import { CardImportProcessor } from './card-import.processor';
 
 @Module({
   imports: [
@@ -13,6 +14,6 @@ import { BullModule } from '@nestjs/bullmq'; // <--- ACEASTA ESTE LINIA CARE LIP
     }),
   ],
   controllers: [CardController],
-  providers: [CardService, EventsGateway],
+  providers: [CardService, EventsGateway,CardImportProcessor],
 })
 export class CardModule {}
